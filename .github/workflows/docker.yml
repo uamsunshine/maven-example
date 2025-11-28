@@ -42,14 +42,14 @@ jobs:
     - name: Setup JFrog CLI
       uses: jfrog/setup-jfrog-cli@v4
       env:
-        JF_URL: ${{ env.POC_URL }}
+        JF_URL_NAME: ${{ env.POC_URL }}
         JF_ACCESS_TOKEN: ${{ env.JF_ACCESS_TOKEN }} # 使用经过交换得到的访问令牌
       with:
         version: latest
 
     - name: Configure JFrog CLI
       run: |
-        jfrog config add my-artifactory --url $JF_URL --access-token $JF_ACCESS_TOKEN --interactive=false
+        jfrog config add my-artifactory --url $JF_URL_NAME --access-token $JF_ACCESS_TOKEN --interactive=false
         jfrog config show my-artifactory
 
     # # 步骤4: 构建 Docker 镜像

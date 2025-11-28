@@ -34,6 +34,9 @@ jobs:
         ACCESS_TOKEN=$(curl -XPOST -H "Content-Type: application/json" "${{ env.POC_URL }}/access/api/v1/oidc/token" -d "{\"grant_type\": \"urn:ietf:params:oauth:grant-type:token-exchange\", \"subject_token_type\":\"urn:ietf:params:oauth:token-type:id_token\", \"subject_token\": \"${ID_TOKEN}\", \"provider_name\": \"${OIDC_PROVIDER}\"}" | jq .access_token | tr -d '"')
         echo "ACCESS_TOKEN=${ACCESS_TOKEN}" >> $GITHUB_ENV
         # 将访问令牌设置为GitHub Secret，避免在日志中暴露
+        echo "===ID_TOKEN: ${ID_TOKEN}"
+        echo "===ACCESS_TOKEN: ${ACCESS_TOKEN}"
+        echo "=== OIDC_PROVIDER: ${OIDC_PROVIDER}"
         echo "JF_ACCESS_TOKEN=${ACCESS_TOKEN}" >> $GITHUB_ENV
         printenv
 

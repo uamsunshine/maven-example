@@ -86,5 +86,5 @@ jobs:
       run: |
         # 使用 jfrog rt docker-pull 命令拉取镜像[citation:1]
         jfrog rt docker-pull \
-          ${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }} \
+          https://demo.jfrogchina.com/${{ env.DOCKER_IMAGE_NAME }}:${{ env.DOCKER_IMAGE_TAG }} \
           your-docker-local-repo

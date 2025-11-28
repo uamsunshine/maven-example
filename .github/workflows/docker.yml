@@ -49,8 +49,10 @@ jobs:
 
     - name: Configure JFrog CLI
       run: |
+        printenv
         jfrog config add my-artifactory --url $JF_URL_NAME --access-token $JF_ACCESS_TOKEN --interactive=false
         jfrog config show my-artifactory
+        
 
     # # 步骤4: 构建 Docker 镜像
     # - name: Build Docker image

@@ -35,6 +35,8 @@ jobs:
         echo "ACCESS_TOKEN=${ACCESS_TOKEN}" >> $GITHUB_ENV
         # 将访问令牌设置为GitHub Secret，避免在日志中暴露
         echo "JF_ACCESS_TOKEN=${ACCESS_TOKEN}" >> $GITHUB_ENV
+        printenv
+
 
     - uses: actions/checkout@v4
 
@@ -49,7 +51,6 @@ jobs:
 
     - name: Configure JFrog CLI
       run: |
-        printenv
         jfrog config add my-artifactory --url $JF_URL_NAME --access-token $JF_ACCESS_TOKEN --interactive=false
         jfrog config show my-artifactory
         

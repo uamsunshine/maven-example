@@ -55,7 +55,7 @@ jobs:
 
     - name: Configure JFrog CLI
       run: |
-        jfrog config add my-artifactory --url $JF_URL_NAME --access-token $JF_ACCESS_TOKEN --interactive=false
+        jfrog config add my-artifactory --url ${JF_URL_NAME} --access-token ${JF_ACCESS_TOKEN} --interactive=false
         jfrog config show my-artifactory
         
 

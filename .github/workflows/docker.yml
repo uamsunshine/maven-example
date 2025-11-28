@@ -12,8 +12,8 @@ jobs:
   build-and-push:
     runs-on: ubuntu-latest
     env:
-      OIDC_PROVIDER: 'zhl-github'
-      OIDC_AUDIENCE: 'zhl-github'
+      OIDC_PROVIDER: 'test'
+      OIDC_AUDIENCE: 'test'
       POC_URL: 'https://demo.jfrogchina.com'
       # 定义镜像标签
       DOCKER_IMAGE_NAME: 'zhl-docker-ali-remote/library/nginx'
